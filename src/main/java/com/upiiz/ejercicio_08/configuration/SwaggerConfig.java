@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @OpenAPIDefinition(
         info = @Info(
-                title = "API de Proveedores - Ejercicio 08",
+                title = "API de Proveedores",
                 description = "Documentación oficial de la API REST para el manejo de proveedores con Spring Boot y H2",
                 termsOfService = "https://www.upiiz.ipn.mx/terminos",
                 contact = @Contact(
@@ -22,10 +22,12 @@ import org.springframework.context.annotation.Configuration;
                         name = "Licencia MIT",
                         url = "https://opensource.org/licenses/MIT"
                 ),
-                version = "1.0.0"
+                version = "1.0.1"
         ),
         servers = {
-                @Server(url = "http://localhost:8080", description = "Servidor Local de Desarrollo")
+               // Servidor en producción (Render) - ¡Debe ir primero para que sea el valor por defecto!
+                @Server(url = "https://ejercicio-08-btry.onrender.com", description = "Servidor Producción Render"),
+                @Server(url = "http://localhost:8080", description = "Servidor Local")
         }
 )
 public class SwaggerConfig {
